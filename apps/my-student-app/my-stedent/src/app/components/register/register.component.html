@@ -41,7 +41,7 @@
               <input
                 type="text"
                 name="UserName"
-                [(ngModel)]="model.name"
+                [(ngModel)]="studentModel.name"
                 class="form-control sty1"
                 placeholder="Name"
                 required
@@ -55,7 +55,7 @@
               <input
                 type="text"
                 name="dob"
-                [(ngModel)]="model.dbo"
+                [(ngModel)]="studentModel.dbo"
                 class="form-control sty1"
                 placeholder="DOB"
                 required
@@ -69,7 +69,7 @@
               <input
                 type="text"
                 name="email"
-                [(ngModel)]="model.email"
+                [(ngModel)]="studentModel.email"
                 class="form-control sty1"
                 placeholder="Email"
                 required
@@ -83,7 +83,7 @@
               <input
                 type="password"
                 name="password"
-                [(ngModel)]="model.password"
+                [(ngModel)]="studentModel.password"
                 class="form-control sty1"
                 placeholder="password"
                 required
@@ -97,7 +97,7 @@
               <select
                 class="form-control"
                 id="university"
-                [(ngModel)]="model.university"
+                [(ngModel)]="selectedUniversity"
                 name="university"
                 placeholder="Selct University"
                 (ngModelChange)="onUniversityChange($event)"
@@ -117,7 +117,7 @@
               <select
                 class="form-control"
                 id="courses"
-                [(ngModel)]="model.courseApplied"
+                [(ngModel)]="selectedCourse"
                 name="courses"
               >
                 <option *ngFor="let course of allCourse" [ngValue]="course">{{
@@ -133,7 +133,7 @@
               <input
                 type="text"
                 name="fatherName"
-                [(ngModel)]="model.fatherName"
+                [(ngModel)]="studentModel.fatherName"
                 class="form-control sty1"
                 placeholder="FatherName"
                 required

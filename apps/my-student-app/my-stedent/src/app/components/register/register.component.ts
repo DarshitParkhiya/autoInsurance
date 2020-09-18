@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Student } from '../../models/studentsModels/Student';
 import { AdminService } from '../../services/admin.service';
 import { StudentService } from '../../services/student.service';
 import { UserService } from '../../services/user.service';
@@ -10,14 +11,15 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  model: any = {};
+  studentModel: Student = new Student();
   selectedRegister = 'student';
+  selectedUniversity: any;
+  selectedCourse: any;
   allUnivesrity = [];
   allCourse = [];
 
   errorMessage: string;
   constructor(
-    private router: Router,
     private adminService: AdminService,
     private studentService: StudentService
   ) {}
@@ -38,15 +40,16 @@ export class RegisterComponent implements OnInit {
   }
 
   submit() {
-    this.model.courseDetails = [
+    debugger;
+    this.studentModel.courseDetails = [
       {
-        universityId: this.model.university._id,
-        coursesId: this.model.courseApplied._id,
+        universityId: this.selectedUniversity._id,
+        coursesId: this.selectedCourse._id,
       },
     ];
 
-    console.log('**before***', this.model);
-    this.studentService.addStudent(this.model).subscribe(
+    console.log('**before***', this.studentModel);
+    this.studentService.addStudent(this.studentModel).subscribe(
       (a) => {
         console.log(a);
       },
