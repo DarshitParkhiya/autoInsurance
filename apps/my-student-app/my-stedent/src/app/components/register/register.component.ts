@@ -30,15 +30,12 @@ export class RegisterComponent implements OnInit {
         });
       });
 
-      console.log('*******', this.allUnivesrity);
+
     });
   }
 
-  login() {
-    localStorage.clear();
-    localStorage.setItem('userName', 'Darshit');
-    localStorage.setItem('userEmailId', 'darshit@gmail.com');
-    this.router.navigate(['/dashboard']);
+  submit() {
+    console.log('****',this.model);
   }
 
   registerChange(value: string) {
@@ -46,7 +43,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onUniversityChange(selectedUniversity: any) {
-    console.log('****selectedUniversity****', selectedUniversity);
-
+    this.allCourse = [];
+    selectedUniversity.courses.forEach((course) => {
+      this.allCourse.push(course);
+    });
   }
 }

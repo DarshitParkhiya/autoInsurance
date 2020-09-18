@@ -29,7 +29,7 @@
           <form
             *ngIf="selectedRegister === 'student'"
             name="form"
-            (ngSubmit)="login()"
+            (ngSubmit)="submit()"
             #f="ngForm"
           >
             <h1 style="text-align: center;">Student Registration</h1>
@@ -54,7 +54,7 @@
               </div>
               <input
                 type="text"
-                name="UserName"
+                name="dob"
                 [(ngModel)]="model.dbo"
                 class="form-control sty1"
                 placeholder="DOB"
@@ -68,10 +68,24 @@
               </div>
               <input
                 type="text"
-                name="UserName"
-                [(ngModel)]="model.dbo"
+                name="eamil"
+                [(ngModel)]="model.eamil"
                 class="form-control sty1"
                 placeholder="Email"
+                required
+              />
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-user"></i></span>
+              </div>
+              <input
+                type="password"
+                name="password"
+                [(ngModel)]="model.password"
+                class="form-control sty1"
+                placeholder="password"
                 required
               />
             </div>
@@ -106,10 +120,9 @@
                 [(ngModel)]="model.courseApplied"
                 name="courses"
               >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+                <option *ngFor="let course of allCourse" [ngValue]="course">{{
+                  course.course
+                }}</option>
               </select>
             </div>
 
@@ -119,8 +132,8 @@
               </div>
               <input
                 type="text"
-                name="UserName"
-                [(ngModel)]="model.dbo"
+                name="fatherName"
+                [(ngModel)]="model.fatherName"
                 class="form-control sty1"
                 placeholder="FatherName"
                 required
@@ -137,12 +150,15 @@
               </p>
             </div>
             <div class="row">
-              <div class="col-6">
-                <button type="submit" class="btn btn-primary px-4">
-                  Login
+              <div class="col-12 offset-2">
+                <button type="submit" class="btn btn-primary px-4 mr-2">
+                  Save
+                </button>
+                <button type="submit" class="btn btn-danger px-4">
+                  Cancel
                 </button>
               </div>
-              <a routerLink="/register" class="btn btn-link">Register</a>
+
             </div>
           </form>
         </div>
