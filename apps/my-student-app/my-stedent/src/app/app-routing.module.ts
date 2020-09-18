@@ -1,23 +1,32 @@
+
 import { LoginComponent } from './components/login/login.component';
 import { AssetLifecycleComponent } from './components/asset-lifecycle/asset-lifecycle.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
-  {    
-    path: '',    
-    redirectTo: 'login',    
-    pathMatch: 'full',    
-  },    
-  {    
-    path: 'login',    
-    component: LoginComponent,    
-    data: {    
-      title: 'Login Page'    
-    }    
-  },    
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: {
+      title: 'Login Page',
+    },
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    data: {
+      title: 'Registration',
+    },
+  },
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -26,7 +35,7 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
   },
-  
+
   {
     path: 'assetlifecycle',
     component: AssetLifecycleComponent,

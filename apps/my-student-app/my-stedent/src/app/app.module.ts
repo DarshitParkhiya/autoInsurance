@@ -12,9 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { CommonModule } from '@angular/common';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, DashboardComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent, DashboardComponent, LoginComponent, RegisterComponent],
   imports: [
     FormsModule,
     BrowserModule,

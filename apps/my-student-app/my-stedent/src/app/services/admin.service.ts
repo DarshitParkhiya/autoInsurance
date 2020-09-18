@@ -9,11 +9,12 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
-  adminUrl = 'http://localhost:5000/api/admin';
+export class AdminService {
+  private requestType = 'http://localhost:5000/api/admin';
+
   constructor(private http: HttpClient) {}
 
-  getUniversitties(): Observable<any> {
-    return this.http.get<any>(this.adminUrl, httpOptions).pipe();
+  getAllAdmin(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.requestType}`);
   }
 }

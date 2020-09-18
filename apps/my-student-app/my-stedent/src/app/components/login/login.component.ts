@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminService } from '../../services/admin.service';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -11,10 +12,17 @@ export class LoginComponent implements OnInit {
   model: any = {};
 
   errorMessage: string;
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router, private adminService: AdminService) {}
 
   ngOnInit() {
     localStorage.clear();
+    this.getAdminDetails();
+  }
+
+  getAdminDetails() {
+    this.adminService.getAllAdmin().subscribe((a) => {
+      console.log('*******', a);
+    });
   }
 
   login() {
