@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
+import { StudentService } from '../../services/student.service';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -15,7 +16,11 @@ export class RegisterComponent implements OnInit {
   allCourse = [];
 
   errorMessage: string;
-  constructor(private router: Router, private adminService: AdminService) {}
+  constructor(
+    private router: Router,
+    private adminService: AdminService,
+    private studentService: StudentService
+  ) {}
 
   ngOnInit() {
     localStorage.clear();
@@ -29,13 +34,26 @@ export class RegisterComponent implements OnInit {
           this.allUnivesrity.push(element);
         });
       });
-
-
     });
   }
 
   submit() {
-    console.log('****',this.model);
+    this.model.courseDetails = [
+      {
+        universityId: this.model.university._id,
+        coursesId: this.model.courseApplied._id,
+      },
+    ];
+
+    console.log('**before***', this.model);
+    this.studentService.addStudent(this.model).subscribe(
+      (a) => {
+        console.log(a);
+      },
+      (error) => {
+        console.log('Error');
+      }
+    );
   }
 
   registerChange(value: string) {
