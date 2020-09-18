@@ -1,0 +1,33 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="isExpanded = !isExpanded"></button>
+  <span class="spacer">Test App</span>
+  <ul>
+    <li>Welcome</li>
+    <li>
+      <button mat-button routerLink="/">Logout</button>
+    </li>
+  </ul>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav
+    #sidenav
+    class="example-sidenav"
+    mode="side"
+    opened="true"
+    (mouseenter)="mouseenter()"
+    (mouseleave)="mouseleave()"
+  >
+  </mat-sidenav>
+
+  <div class="example-sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
+<mat-toolbar color="primary" class="app-footer">
+  <mat-toolbar-row>
+    <span class="footer-right"
+      >Powered By
+      <a target="_blank" href="http://edutechcure.com">Darhit P.com</a></span
+    >
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,157 @@
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-3 pr-2">
+      <label for="ex1">Requestor Name</label>
+      <input
+        [(ngModel)]="request.requestrName"
+        class="form-control"
+        id="ex1"
+        type="text"
+      />
+    </div>
+    <div class="col-sm-3 pr-2">
+      <label for="ex2">Requestor Email</label>
+      <input
+        [(ngModel)]="request.requestrEmail"
+        class="form-control"
+        id="ex2"
+        type="text"
+      />
+    </div>
+    <div class="col-sm-3 pr-2">
+      <label for="ex3">Hos Start Date</label>
+      <input
+        [(ngModel)]="request.hostStartDate"
+        class="form-control"
+        id="hosStartDate"
+        type="date"
+        id="start"
+        name="trip-start"
+        value="todaDate"
+      />
+    </div>
+    <div class="col-sm-3 pr-2">
+      <label for="ex3">Hos End Date</label>
+      <input
+        [(ngModel)]="request.hostEndDate"
+        class="form-control"
+        id="hosEndDate"
+        type="date"
+        id="start"
+        name="trip-start"
+        value="todaDate"
+      />
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-sm-6 pr-2">
+      <div class="row">
+        <div class="col-sm-12">
+          <label for="ex3">Request Description</label>
+          <input
+            [(ngModel)]="request.requestDescription"
+            class="form-control"
+            id="ex3"
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-sm-12">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="request1"
+              value="request1"
+              (click)="radioChange('request1')"
+            />
+            <label class="form-check-label" for="request1">
+              Request 1
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="request2"
+              value="request2"
+              (click)="radioChange('request2')"
+            />
+            <label class="form-check-label" for="request2">
+              Request 2
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="request3"
+              value="request3"
+              (click)="radioChange('request3')"
+            />
+            <label class="form-check-label" for="request3">
+              Request 3
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="request4"
+              value="request4"
+              (click)="radioChange('request4')"
+            />
+            <label class="form-check-label" for="request4">
+              Request 4
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 pr-2">
+      <div class="container">
+        <ul>
+          LIST 1
+          <li
+            *ngFor="let item of list1"
+            (click)="toggleSelection(item, 1)"
+            [ngClass]="item.selected ? 'my-class' : ''"
+          >
+            {{ item.text }}
+          </li>
+        </ul>
+        <div class="buttons-container">
+          <button (click)="moveSelected('right')">></button>
+          <button (click)="moveAll('right')">>></button>
+          <button (click)="moveSelected('left')"><</button>
+          <button (click)="moveAll('left')"><<</button>
+        </div>
+        <ul>
+          LIST 2
+          <li
+            *ngFor="let item of list2"
+            (click)="toggleSelection(item, 2)"
+            [ngClass]="item.selected ? 'my-class' : ''"
+          >
+            {{ item.text }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 offset-sm-5">
+      <button type="button" (click)="onSumbit()" class="btn btn-success mr-2">
+        Submit
+      </button>
+      <button type="button" (click)="onCancel()" class="btn btn-primary">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
