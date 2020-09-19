@@ -39,24 +39,10 @@ export class LoginComponent implements OnInit {
         .subscribe((a) => {
           localStorage.setItem('userType', this.selectedUserType);
           localStorage.setItem('userid', a._id);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/studenthome']);
         });
     }
-    // this.userService.Login(this.model).subscribe(
-    //   (data) => {
-    // debugger;
-    // if (data.Status == 'Success') {
     localStorage.clear();
-
-    //       debugger;
-    //     } else {
-    //       this.errorMessage = data.Message;
-    //     }
-    //   },
-    //   (error) => {
-    //     this.errorMessage = error.message;
-    //   }
-    // );
   }
 
   loginChange(value: UserTypes): void {

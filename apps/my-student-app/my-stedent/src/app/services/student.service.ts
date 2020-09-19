@@ -18,6 +18,10 @@ export class StudentService {
     return this.http.get<any[]>(`${this.requestType}`);
   }
 
+  getStudentById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.requestType}/getByID?id=${id}`);
+  }
+
   addStudent(student: any): Observable<any> {
     return this.http.post<any>(this.requestType, student, httpOptions);
   }

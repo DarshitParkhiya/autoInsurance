@@ -1,4 +1,4 @@
-
+import { StudentHomeComponent } from './components/student/student-home/student-home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AssetLifecycleComponent } from './components/asset-lifecycle/asset-lifecycle.component';
 import { NgModule } from '@angular/core';
@@ -26,6 +26,11 @@ const routes: Routes = [
     data: {
       title: 'Registration',
     },
+  },
+
+  {
+    path: 'studenthome',
+    component: StudentHomeComponent,
   },
   {
     path: 'dashboard',

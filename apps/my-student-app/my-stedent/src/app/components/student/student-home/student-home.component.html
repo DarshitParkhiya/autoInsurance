@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills flot-add-new">
+      <li class="nav-item">
+        <a class="nav-link active" href="/home">+ New Request</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row">
+        <div class="col-sm-3 pr-2">
+          <label for="ex1">Student Name</label>
+          <input
+            [(ngModel)]="student.name"
+            class="form-control"
+            id="ex1"
+            type="text"
+          />
+        </div>
+        <div class="col-sm-3 pr-2">
+          <label for="ex2">Email</label>
+          <input
+            [(ngModel)]="student.email"
+            class="form-control"
+            id="ex2"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Description</th>
+          <th scope="col">Stage</th>
+          <th scope="col">Start</th>
+          <th scope="col">End</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
