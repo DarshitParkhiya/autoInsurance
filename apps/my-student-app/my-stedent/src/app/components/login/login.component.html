@@ -3,6 +3,29 @@
     <div class="card-group">
       <div class="card p-4">
         <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12 mx-auto">
+              <label class="radio-inline">
+                <input
+                  type="radio"
+                  [ngModel]="selectedUserType"
+                  value="userTypes.student"
+                  name="optradio"
+                  (change)="loginChange(userTypes.student)"
+                  checked
+                />Student
+              </label>
+              <label class="radio-inline">
+                <input
+                  type="radio"
+                  [ngModel]="selectedUserType"
+                  value="userTypes.admin"
+                  name="optradio"
+                  (change)="loginChange(userTypes.admin)"
+                />Admin
+              </label>
+            </div>
+          </div>
           <form name="form" (ngSubmit)="login()" #f="ngForm">
             <h1 style="text-align: center;">Login</h1>
 

@@ -1,7 +1,9 @@
+import { StudentService } from './../../services/student.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
 import { UserService } from '../../services/user.service';
+import { UserTypes } from '../../enums/UserType';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +12,14 @@ import { UserService } from '../../services/user.service';
 })
 export class LoginComponent implements OnInit {
   model: any = {};
-
+  userTypes = UserTypes;
+  selectedUserType = UserTypes.student;
   errorMessage: string;
-  constructor(private router: Router, private adminService: AdminService) {}
+  constructor(
+    private router: Router,
+    private adminService: AdminService,
+    private studentService: StudentService
+  ) {}
 
   ngOnInit() {
     localStorage.clear();
@@ -26,15 +33,21 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    debugger;
+    if (this.selectedUserType === UserTypes.student) {
+      this.studentService
+        .authenticateSutdent(this.model.UserName, this.model.Password)
+        .subscribe((a) => {
+          localStorage.setItem('userType', this.selectedUserType);
+          localStorage.setItem('userid', a._id);
+          this.router.navigate(['/dashboard']);
+        });
+    }
     // this.userService.Login(this.model).subscribe(
     //   (data) => {
     // debugger;
     // if (data.Status == 'Success') {
     localStorage.clear();
-    localStorage.setItem('userName', 'Darshit');
-    localStorage.setItem('userEmailId', 'darshit@gmail.com');
-    this.router.navigate(['/dashboard']);
+
     //       debugger;
     //     } else {
     //       this.errorMessage = data.Message;
@@ -44,5 +57,9 @@ export class LoginComponent implements OnInit {
     //     this.errorMessage = error.message;
     //   }
     // );
+  }
+
+  loginChange(value: UserTypes): void {
+    this.selectedUserType = value;
   }
 }

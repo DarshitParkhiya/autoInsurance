@@ -21,4 +21,12 @@ export class StudentService {
   addStudent(student: any): Observable<any> {
     return this.http.post<any>(this.requestType, student, httpOptions);
   }
+
+  authenticateSutdent(emailId: string, password: string): Observable<any> {
+    return this.http.post<any>(
+      `${this.requestType}/auth`,
+      { emailId, password },
+      httpOptions
+    );
+  }
 }
